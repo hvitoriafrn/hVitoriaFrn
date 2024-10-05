@@ -1,0 +1,402 @@
+:root{
+    --main: #354f52;
+    --bg: #84a98c;
+    --black: #000;
+    --white: #c0c0c0;
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+
+ 
+
+
+
+  *{
+    font-family: 'Roboto', sans-serif;
+    margin: 0; padding: 0; /*Removes extra space around elements like paragraphs and headings, making everything start at the very edge of its container.*/
+    box-sizing: border-box; /*Makes sure that when you set the width and height of an element, it includes the padding and border, so the total size stays consistent.*/
+    
+    text-decoration: none; /*Removes underlines from links so they look plain without any decoration.*/
+    
+    transition: .2s linear; /*Makes changes on our webpage happen smoothly over 0.2 seconds*/
+  }
+
+
+
+
+
+
+  html{
+    font-size: 62.5%;
+    overflow-x: hidden; /*Hides horizontal scrollbar if the content overflows*/
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+  
+  /*scrollbar styling*/
+  html::-webkit-scrollbar{ /*Targets the scrollbar in WebKit browsers like Chrome and Safari.*/
+    width: 0.5rem; /*width of the scrollbar.*/
+  }
+  
+  html::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  
+  html::-webkit-scrollbar-thumb{
+    background: var(--main);
+    border-radius: 5rem; /*Rounds the corners of the scrollbar thumb.*/
+  }
+
+
+  section{
+    padding: 8rem 7%; /*dds padding,top and bottom padding is 8 times the size of my root font size, and left and right padding is 7% of the container width.*/
+  }
+
+
+  .heading{ /*gallery-shop-contact titles*/
+    text-align: center;
+    font-size: 4rem; /*4 times the size of the root font*/
+    color: var(--main);
+    text-transform: uppercase;
+    margin-bottom: 3rem; /*adds space at the bottom*/
+    padding: 1.2rem 0; /*provides padding above and below the text.*/
+  }
+
+
+
+
+  /*deals with all the buttons on the page*/
+  .btn{
+    font-size: 1.7rem; /*1.7 times the size of the root font*/
+    display: inline-block;
+    background: var(--main);
+    color: var(--white);
+    box-shadow: var(--box-shadow); 
+    border-radius: 5rem;/*rounds the corners of the button*/
+    padding: 0.9rem 3rem; /*provides padding inside the button*/
+    margin-top: 1rem; /* adds space above the button*/
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+
+  /*the colour for hover on button*/
+.btn::before{ /*dded before the .btn code to create an overlay effect when hovering over the button.*/
+    content: ''; /*withought this it work*/
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: #2e62b0;
+    z-index: -1; /*the hover part is behind the text*/
+    transition: .3s linear; /*makes the hover look more seamless*/
+    left: 0;
+  }
+  
+  /*hovers over buttona*/
+  .btn:hover::before{
+    width: 100%;
+  }
+
+
+
+  /* header */
+
+.header{
+    position: fixed;
+    top: 0; left: 0; right: 0; /*Stretches the header across the entire width of the screen from the top left to the top right.*/
+    z-index: 1000;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    display: flex; /*makes the other navbar contents on the same line and not underneath the earth text*/
+    align-items: center; 
+    justify-content: space-between; /*creates space between the earth text in the heading and the other navbar topics*/
+    padding: 2rem 9%;
+  }
+  
+  .header .logo{ /*using .logo here seperates the earth text from the other navbar elements*/
+    font-size: 2.5rem; /*makes the earth text bigger*/
+    font-weight: bolder;
+    color: var(--black);
+  }
+
+
+/*big logo in homepage*/
+.header .logo i{
+    color: rgb(69, 127, 69);
+  }
+
+
+
+
+
+
+/*nav bar*/
+
+  /*nav bar text - home, about us...*/
+ /* Hide dropdown content by default */
+ .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Position the dropdown links */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Style the hover target for the dropdown content */
+.dropdown-target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* Keep the dropdown content visible when hovering over the dropdown or the hover target */
+.dropdown:hover .dropdown-content,
+.dropdown-target:hover .dropdown-content {
+    display: block;
+}
+
+/* Style the rest of the dropdown as before */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; /* Adjust as needed */
+}
+
+/* Position the dropdown links */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Style the hover target for the dropdown content */
+.dropdown-target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* Keep the dropdown content visible when hovering over the dropdown or the hover target */
+.dropdown:hover .dropdown-content,
+.dropdown-target:hover .dropdown-content,
+.dropdown-content:hover {
+    display: block;
+}
+
+/* Style the rest of the dropdown as before */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.dropdown-content .sub-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    z-index: 1;
+    top: 0;
+    left: calc(100% - 5px);
+}
+
+.dropdown-content:hover .sub-menu,
+.dropdown-content .sub-menu:hover {
+    display: block;
+}
+
+.sub-menu a {
+    padding-left: 10px;
+}
+
+.navbar a {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+.navbar a {
+    font-size: 1.7rem;
+    color: var(--black);
+    margin: 0 1rem;
+}
+
+.navbar a:hover {
+    color: var(--main);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+  
+.footer{
+    background: url() no-repeat;
+    background-size: cover;
+    padding: 3rem 7%;
+  }
+  
+  .footer .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.footer .box {
+    flex: 0 1 calc(20% - 20px);
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer .box-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .box {
+        flex: 1 1 100%;
+    }
+}
+
+
+  
+  .footer .box-container .box h3{
+    font-size: 2.5rem;
+    color: var(--main);
+    padding: 1rem 0;
+  }
+  
+  .footer .box-container .box p{
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--white);
+    padding: 1rem 0;
+  }
+  
+  .footer .box-container .box .links{
+    display: block;
+    font-size: 1.5rem;
+    color: var(--white);
+    padding: 1rem 0;
+  }
+  
+  .footer .box-container .box .links i{
+    color: var(--main);
+    padding-right: .5rem;
+  }
+  
+  .footer .box-container .box .links:hover i{
+    padding-right: 2rem;
+  }
+  
+  .footer .box-container .box .days{
+    margin-left: 2.2rem;
+    line-height: .2;
+  }
+  
+  .footer .box-container .box .email{
+    width: 100%;
+    margin: .7rem 0;
+    padding: 1rem;
+    border-radius: .5rem;
+    background: var(--white);
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+  }
+  
+  .footer .box-container .box .share a{
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    color: var(--black);
+    background: var(--white);
+    font-size: 1.2rem;
+    border-radius: 5rem;
+    margin-right: .8rem;
+    text-align: center;
+    margin-top: 1.4rem;
+  }
+  
+  .footer .box-container .box .share a:hover{
+    background: var(--main);
+  }
+  
+  .footer .credit{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2.5rem;
+    color: var(--black);
+    border-top: .2rem solid rgba(0, 0, 0, 0.2);
+  }
+  
+  .footer .credit .link{
+    color: var(--main);
+  }
+  
+
+  .footer {
+    padding: 3rem 7%;
+    background-color: #1f1f1f; /* change footer background color here */
+}
+
+/* Assuming the same CSS styles as before */
+
+.box {
+    flex: 0 1 calc(20% - 20px);
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .footer .box-container {
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+  
+
+  /* end */
+  
+  

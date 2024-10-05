@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User profile</title>
+    <link rel="stylesheet" href="Homepage.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- swiper bundle -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <style>
+        .sectionOne, .sectionTwo, .sectionThree, .sectionFour {
+            margin-left: 20px;
+            margin-right: auto;
+            float: none;
+            padding: 10px;
+            width: 980px;
+            height: 225px;
+        }
+        .startButton, .continueButton, .continueButton2, .continueButton3 {
+            float: right;
+            height: 60px;
+            width: 55px;
+            margin-left: 60%;
+            margin-right: 2%;
+            position: relative;
+        }
+        .skipButton {
+            margin-right: 2%;
+            margin-left: 2%;
+            float: right;
+            height: 60px;
+            width: 55px;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Roboto', sans-serif;;
+            text-align: center;
+            margin-top: 15%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 35px;
+        }
+        .questions, .subQuestions {
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+        .questions {
+            font-size: 12.5px;
+        }
+        .subQuestions{
+            font-size: 18.5px;
+        }
+        h2 {
+            text-align: left;
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 2%;
+            font-size:20px;
+        }
+        #userProfile{
+            font-size: 18px;
+        }
+        .wrapper {
+            background-color: #709775;
+            padding: 8px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .answers{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: lighter;
+            font-size: 17px;
+        }
+        .completion-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #edede9; /* Grey color */
+            position: relative;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            }
+        .completion-fill {
+            height: 100%;
+            width: 0%; /* Adjust this to change completion percentage */
+            background-color: rgb(133, 200, 32); /* Green color */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .body {
+            background-color: #c8d5b9; 
+            border: 20px;
+            margin-left: 15%;
+            margin-right: 15%;
+            font-weight: lighter;
+            margin-bottom: 7%;
+        }
+        body{
+            background-color:#c8d5b9 ;
+        }
+        .hidden {
+            display: none;
+        }
+        .centered {
+            text-align: center;
+            margin: 0 auto;
+            width: 50%; /* Adjust the width as needed */
+            font-size: small;
+            }
+        #userProfileTITLE {
+            display: none;
+            text-align: center;
+            margin-left: 28%;
+            font-size: medium;
+        }
+        .advice{
+            font-style: italic;
+            font-weight:300;
+        }
+        .image{
+            margin-left: 36%;
+            margin-right: auto;
+        }
+        .red{
+            color: red;
+        }
+
+    /*adjusting for smaller screens - work in progress*/
+        @media only screen and (max-width: 600px) {
+            body {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            .wrapper {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: center;
+            }
+            .sectionOne, .sectionTwo, .sectionThree, .sectionFour {
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                float: none;
+            }
+            .startButton, .continueButton, .continueButton2, .continueButton3, .skipButton {
+                margin-left: 0;
+                margin-right: 0;
+                float: none;
+            }
+            #userProfileTITLE {
+                margin-left: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <!-- header -->
+
+    <header class="header">
+
+        <a href="#" class="logo"><img src="Images_ST3/clear01.png" alt="Earth Logo" style="width: 20px; height: 20px;"> Earth</a>
+
+
+        <nav class="navbar">
+          <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/home.html" target="_blank">Home</a>
+          <div class="dropdown">
+              <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html" target="_blank">About us</a>
+              <div class="dropdown-content">
+                  <a href="#content">Content</a>
+                  <div class="sub-menu">
+                      <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/Overview.html" target="_blank">Overview</a>
+                      <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/content_ST3.html"target="_blank" target="_blank">Take Action</a>
+                      <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/content_ST4.html " target="_blank">Targets</a>
+                      <a href="#progress">Progress</a>
+                  </div>
+              </div>
+          </div>
+          <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/gallery.html" target="_blank">Gallery</a>
+          <a href="#shop">Shop</a>
+          <div class="dropdown">
+              <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Profile.html" target="_blank">User Profile</a>
+              <div class="dropdown-content">
+                  <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/Forms.html"target="_blank">Feedback Form</a>
+              </div>
+          </div>
+          <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/sitemap.html " target="_blank">Sitemap</a>
+          <div class="dropdown">
+              <a href="#info">Info</a>
+              <div class="dropdown-content">
+                <a href="https://sdgs.un.org/contact" target="_blank">Contact</a>
+                  <a href="#joinus">Join Us</a>
+                  <a href="FAQs.html"target="_blank">FAQs</a>
+                  <a href="terms&conditions.html"target="_blank">Terms & Conditions</a>
+              </div>
+          </div>
+      </nav>
+      
+
+        <div class="icons">
+            <div id="menu-btn"></div>
+        </div>
+        
+    </header>
+  
+<div class="body">
+<!--starting to build the body of the page, first I create a heading that will be in the centre of such page-->
+<h1>Build Your Profile</h1>
+<!--created a div for the image, this was the very last thing added to this page-->
+<div class="image">
+    <img src="Images_ST3/sustainable.png" width="300" alt="image of the earth">
+</div>
+<!-- Div for wrapper, this "wrapper" is for each section heading 2 -->
+<div class="wrapper">
+    <h2>Personal details: </h2>
+    <!-- button for the user to get started with answering the prompts-->
+    <button class="startButton" id="startButton">Get started</button>
+</div>
+<!--Another div, now inside wrapper to create sections. This is section one, where I ask user for their basic details-->
+<div class="sectionOne">
+    <p class="questions">Question 1/4:<br> <!--text that will be displayed along with the questions and answers-->
+        <span id="question1" class="subQuestions">Name: </span> <!-- using something similar to the mathsgame code from tutorials-->
+        <input class="answers" type="text" id="answer1Text" placeholder="Press get started to fill out this section" size="40" readonly> <!--input type text in readonly (until user gets prompted the questions)-->
+        <span class="advice hidden" id="advice1"> Please enter your name <span class="red">**Required</span>  </span>
+    </p>
+    <p class="questions">Question 2/4:<br>
+        <span id="question2" class="subQuestions">Surname: </span>
+        <input class="answers" type="text" id="answer2Text" readonly > <!-- same for each question of the section-->
+        <span class="advice hidden" id="advice2"> Please enter your surname <span class="red">**Required</span> </span>
+    </p>
+    <p class="questions">Question 3/4:<br>
+        <span id="question3" class="subQuestions">Age: </span>
+        <input class="answers" type="number" id="answer3Text" readonly><!--same for each question in the section-->
+        <span class="advice hidden" id="advice3"> Please enter your age (numbers only)</span>
+    </p>
+    <p class="questions">Question 4/4:<br>
+        <span id="question4" class="subQuestions">Email: </span>
+        <input class="answers" type="email" id="answer4Text" size="45" readonly> 
+        <span class="advice hidden" id="advice4"> Please enter your email address <span class="red">**Required</span> </span>
+    </p>
+</div>
+<!-- here I create a separate div for the completion bar and since I'm creating 4 different bars 
+that will upload at the same time when the info is completed, I give them the same class but different IDs-->
+<div class="completion-bar" id="completionBar1">
+    <!-- similar to completion bar, I create a completionFill which will essentially colour the bar in green 
+        when a section is completed-->
+    <div class="completion-fill" id="completionFill1"></div>
+</div>
+<!-- similar to section one, I create another div class for another section heading with div class 'wrapper'-->
+<div class="wrapper">
+    <h2>Volunteering: </h2>
+    <!-- a continue button that will prompt the user with questions from sectionn two if they choose to answer it-->
+    <button class="continueButton" id="continueButton">Next step</button>
+    <!-- a skip button for when the user chooses not to answer a section-->
+    <button class="skipButton" id="skipButton1">Skip</button>
+</div>
+<!-- start of section two questions-->
+    <div class="sectionTwo hidden"> 
+        <!-- section two is 'hidden' until the user presses get started, then the attributte hidden that has 'display none' is removed
+        and the section is displayed with the answers the user has given (it will also display if the user skips )-->
+        <p class="questions">Question 1/4:<br>
+            <span id="question5" class="subQuestions">What brings you to this cause? </span>
+            <input class="answers" type="text" id="answer5Text" size="40" placeholder="Press next step to fill out this section" readonly> 
+        </p>
+        <p class="questions">Question 2/4:<br>
+            <span id="question6" class="subQuestions">Have you ever volunteered before? </span>
+            <input class="answers" type="text" id="answer6Text" readonly> 
+        </p>
+        <p class="questions">Question 3/4:<br>
+            <span id="question7" class="subQuestions">Where are you located? </span>
+            <input class="answers" type="text" id="answer7Text" readonly> <!-- similar to other sections, user will be able to edit after answering a prompt-->
+        </p>
+        <p class="questions">Question 4/4:<br>
+            <span id="question8" class="subQuestions">Would you volunteer in person or online? </span>
+            <input class="answers" type="text" id="answer8Text" readonly>
+        </p>
+    </div>
+<!-- another completion bar and completion fill-->
+<div class="completion-bar" id="completionBar2">
+    <div class="completion-fill" id="completionFill2"></div>
+</div>
+<!-- start of section three and its questions-->
+<div class="wrapper">
+    <h2>Qualifications: </h2>
+    <button class="continueButton2" id="continueButton2">Next step</button>
+    <button class="skipButton" id="skipButton2">Skip</button>
+</div>
+<div class="sectionThree hidden">
+    <p class="questions">Question 1/4:<br>
+        <span id="question9" class="subQuestions">What is your area of study/work? </span>
+        <input class="answers" type="text" id="answer9Text" placeholder="Press next step to fill out this section" size="40" readonly> 
+    </p>
+    <p class="questions">Question 2/4:<br>
+        <span id="question10" class="subQuestions">What is your University or Institution?</span>
+        <input class="answers" type="text" id="answer10Text" readonly> 
+    </p>
+    <p class="questions">Question 3/4:<br>
+        <span id="question11" class="subQuestions">Where is it located? </span>
+        <input class="answers" type="text" id="answer11Text" readonly> <!--read only so they cannot edit-->
+    </p>
+    <p class="questions">Question 4/4:<br>
+        <span id="question12" class="subQuestions">Year of completion: </span>
+        <input class="answers" type="number" id="answer12Text" readonly>
+        <span class="advice hidden" id="advice5"> Please enter numbers only</span>
+    </p>
+    </div>
+    <!-- completion bar 3 -->
+    <div class="completion-bar" id="completionBar3">
+        <div class="completion-fill" id="completionFill3"></div>
+    </div>
+<!--start of section four-->
+    <div class="wrapper">
+        <h2>Extra details:</h2>
+        <button class="continueButton3" id="continueButton3">Next step</button>
+        <button class="skipButton" id="skipButton3">Skip</button>
+    </div>
+    <div class="sectionFour hidden">
+        <p class="questions">Question 1/3:<br>
+            <span id="question13" class="subQuestions">How many days can you volunteer? </span>
+            <input class="answers" type="text" id="answer13Text" placeholder="Press next step to fill out this section" size="40" readonly> 
+        </p>
+        <p class="questions">Question 2/3:<br>
+            <span id="question14" class="subQuestions">What days are you available?</span>
+            <input class="answers" type="text" id="answer14Text" readonly> <!--read only so the user can't edit-->
+        </p>
+        <p class="questions">Question 3/3:<br>
+            <span id="question15" class="subQuestions"> Telephone number:</span>
+            <input class="answers" type="tel" id="answer15Text" readonly>
+        </p>
+ <!-- completion bar 4 and completion fill 4-->
+        </div>
+        <div class="completion-bar" id="completionBar4">
+            <div class="completion-fill" id="completionFill4"></div>
+        </div>
+        <!-- this button is for the user to see their profile preview-->
+        <button id="seeProfileButton">See your profile</button>
+        <hr>
+        <!-- this new div is for the user profile preview-->
+        <div class="wrapper" >
+            <!-- user profile title has a different id because it's initially hidden. Only shows when user clicks to see their profile-->
+        <div id="userProfileTITLE"><h2 style="text-align: center;"> Preview your details:</h2>
+            <p style="font-style: italic; text-align: center;">You still have time to make changes to your profile. <br>
+            Ensure your details are correct if you would like to hear from us.
+        </p></div>
+      <!-- this is where all the info gathered from the answers displays underneath the sections-->
+        </div>
+        <div id="userProfile"></div>
+        <!-- submit button, initially disabled until the user clicks to see their profile-->
+        <button id="submitButton" style="float: right;" disabled>Submit</button>
+</div>
+<script>
+    // Start of the javascript, we start by saving the questions for each section in arrays. And creating empty arrays for answers.
+    const sectionOneQuestions = ["Name:", 
+    "Surname:", 
+    "Age:",
+    "Email:"];
+    let sectionOneAnswers = [];
+
+    //array to store questions and answers for section two, constant to ensure 
+    const sectionTwoQuestions = ["What brings you to this cause?", 
+    "Have you ever volunteered before?", 
+    "Where are you located?", 
+    "Would you volunteer online or in person?"];
+    let sectionTwoAnswers = [];
+
+    //array to store the questions and answers for section three
+    const sectionThreeQuestions = ["What is your area of study/work?",
+    "What is your University or Institution?", 
+    "Where is it located?", 
+    "Year of completion:"];
+    let sectionThreeAnswers = [];
+
+    //arrays for section four
+    const sectionFourQuestions = ["How many days can you volunteer?",
+    "What days are you available?",
+    "Telephone number:"];
+    let sectionFourAnswers = [];
+
+    // function to check if the user has entered valid characters and strings
+        function checkString(input) {
+            let regex = /^[A-Za-z0-9\s@._-]+$/; 
+            if (typeof input === 'string' && input.trim().length>0 && regex.test(input)) {
+                return true;
+            } else {
+                alert("Not valid, please enter a valid value");
+                return false;
+            }   
+        }
+
+    // this function called userinput is to prompt the user 
+        function userInput(message){
+            var userInput;
+            do {
+                userInput = prompt(message)
+                if (userInput === null) {
+                    return null;
+                }
+            }
+            while (!checkString(userInput)); //checks that the user input a valid value
+            return userInput; 
+        }
+
+        //function to check fir special characters
+        function checkSpecialCharacters(input) {
+        // expression for detecting special characters
+        let regex = /[^\w\s]/; // 
+         //if statement to check if the user input a speial character or not 
+        if (typeof input === 'string' && regex.test(input)) {
+        alert("Input contains special characters. Please remove them."); //if a special character found, an alert pops up with the following message
+        return false;
+        } else {
+        return true; // No special characters found, nothing happens, continues as normal
+        }
+    }
+
+    // function to update the completion bar
+    function updateCompletionBar() {
+        const totalQuestions = 15; //set the amoun of questions in total
+        let filledAnswers= sectionOneAnswers.length + sectionTwoAnswers.length + sectionThreeAnswers.length + sectionFourAnswers.length; 
+        let fillWidth = (filledAnswers/ totalQuestions ) * 100; //calculation to fill the bar
+
+        for (let i =1; i <= filledAnswers; i++) {
+            //loop to increase i while it is smaller or equal to the filledAnswers (all questions combined)
+            if (i<= filledAnswers) {
+                document.querySelector("#completionFill" + i).style.width= fillWidth + "%";
+            } else { 
+                document.querySelector("#completionFill" + i).style.width= "0%";
+            }
+        }
+    }
+//gets the elemnt startbutton and adds an event listener
+//basically sets up that when this element is clicked, the function will be executed
+document.getElementById("startButton").addEventListener("click", function() {
+    // Loop through sectionOneQuestions array to ask user input for each question
+    for (let i = 0; i < sectionOneQuestions.length; i++) {
+        let answer = userInput(sectionOneQuestions[i]);
+        if (answer === "") {
+            //skip 
+            continue;
+        }
+        // gets the user answer and displays it in the correct place
+        let answerInput = document.getElementById("answer"+(i+1)+"Text");
+        answerInput.value = answer;
+    
+        answerInput.addEventListener("click",function() {
+            //removes the attribute readonly so the user can edit the info they input in the prompt
+            answerInput.removeAttribute("readonly");
+         });
+        //removes the attribute 'hidden' to display the advice 
+        let adviceSpan = document.getElementById("advice"+(i+1));
+        adviceSpan.classList.remove("hidden");
+        //pushes the answer to the array of section one answers
+        sectionOneAnswers.push(answer);
+    }
+    // Update section one with answers and uses a loop to display them in the correct place when showing profile preview
+    for (let i = 0; i < sectionOneAnswers.length; i++) {
+        document.getElementById("answer" + (i + 1)+ "Text").innerHTML = sectionOneAnswers[i];
+    }
+    document.getElementById("startButton").disabled = true;//disables start button
+    updateCompletionBar(); //updates completion bar by calling back the function
+});
+
+//event listener for the first 'next step' button
+document.getElementById("continueButton").addEventListener("click", function() {
+    document.querySelector(".sectionTwo").classList.remove("hidden"); //removes hidden attritube to display the questions
+    // Loops sectiontwoquestions to prompt user input for each question
+    for (let i = 0; i < sectionTwoQuestions.length; i++) {
+        let answer = userInput(sectionTwoQuestions[i]);
+        if (answer === null) {
+            //skip 
+            continue;
+        } 
+    //similar to what happens in the previous function, its i+5 because answers1-4 are from sectionOne
+        let answerInput = document.getElementById("answer"+(i+5)+"Text");
+        answerInput.value = answer;
+        answerInput.addEventListener("click",function() {
+        answerInput.removeAttribute("readonly");
+        });
+        sectionTwoAnswers.push(answer);
+    }
+    // Update section one with answers
+    for (let i = 0; i < sectionTwoAnswers.length; i++) {
+        document.getElementById("answer" + (i + 1)+ "Text").innerHTML = sectionOneAnswers[i];
+    }
+    document.getElementById("continueButton").disabled = true; //disables button
+    updateCompletionBar(); //updates bar
+});
+//event listener for the first skip button, when clicked it skips the whole section
+    document.getElementById("skipButton1").addEventListener("click", function() {
+    let sectionTwo = document.querySelector(".sectionTwo"); 
+    console.log(sectionTwo); // Log to check if the correct section is targeted (had issues so I did console log)
+    sectionTwo.classList.remove("hidden"); //unhides the section
+    document.getElementById("skipButton1").disabled = true; //disables skip button after it's clicked
+});
+
+//event listener for section three, when the 'next step' button is clicked, it does the following
+document.getElementById("continueButton2").addEventListener("click", function() {
+    document.querySelector(".sectionThree").classList.remove("hidden"); //unhides section
+    // Loop through sectionthreequestions array to prompt user input for each question
+    for (let i = 0; i < sectionThreeQuestions.length; i++) {
+        let answer = userInput(sectionThreeQuestions[i]);
+        if (answer === "") {
+            //skip 
+            continue;
+        }
+        //similar to previous questions, however it starts when sectionTwo ends (i+9) 
+        let answerInput = document.getElementById("answer"+(i+9)+ "Text");
+        answerInput.value = answer;
+        answerInput.addEventListener("click",function() {
+            answerInput.removeAttribute("readonly"); //removes readonly so user can edit
+        });
+        sectionThreeAnswers.push(answer); //pushes the answer to the array of section one answers
+    }
+    document.getElementById("continueButton2").disabled = true; //disables button
+    updateCompletionBar(); //updates completion bar
+});
+    document.getElementById("skipButton2").addEventListener("click", function() {
+    console.log("skip button clicked"); // had some issues so added console log to see if this worked
+    //gets section three to unhide it.
+    let sectionThree = document.querySelector(".sectionThree");
+    console.log(sectionThree); // Log to check if the correct section is targeted
+    sectionThree.classList.remove("hidden");
+    document.getElementById("skipButton2").disabled = true; //disables skipbutton 2
+});
+
+//when section continue button three gets clicked, do this
+document.getElementById("continueButton3").addEventListener("click", function() {
+    document.querySelector(".sectionFour").classList.remove("hidden"); //unhides section
+
+    // Loop through sectionFour questions
+    for (let i = 0; i < sectionFourQuestions.length; i++) {
+        let answer = userInput(sectionFourQuestions[i]);
+        if (answer === "") {
+            //skip 
+            continue;
+        }
+        let answerInput = document.getElementById("answer"+(i+13)+ "Text");
+        answerInput.value = answer;
+        answerInput.addEventListener("click",function() {
+            answerInput.removeAttribute("readonly");
+        });
+        sectionFourAnswers.push(answer); //stores the answers in the array
+    }
+    document.getElementById("continueButton3").disabled = true; //
+    updateCompletionBar();
+});
+    document.getElementById("skipButton3").addEventListener("click", function() {
+    console.log("skip button clicked"); //helped me identify errors
+    let sectionFour = document.querySelector(".sectionFour");
+    console.log(sectionFour); // console log to check if the correct section is the one targeted
+    sectionFour.classList.remove("hidden");
+    document.getElementById("skipButton3").disabled = true;
+});
+
+//event listener for the see profile button
+document.getElementById("seeProfileButton").addEventListener("click", function() {
+    document.getElementById("submitButton").disabled = false; //enables submit button after see profile button is clicked
+
+    // Collects user input from all the fields 
+    let userProfile = {
+        personalDetails: {
+            name: document.getElementById("answer1Text").value,
+            surname: document.getElementById("answer2Text").value,
+            age: document.getElementById("answer3Text").value,
+            email: document.getElementById("answer4Text").value
+        },
+        volunteering: {
+            reason: document.getElementById("answer5Text").value,
+            volunteeredBefore: document.getElementById("answer6Text").value,
+            location: document.getElementById("answer7Text").value,
+            volunteerType: document.getElementById("answer8Text").value
+        },
+        qualifications: {
+            areaOfWork: document.getElementById("answer9Text").value,
+            institution: document.getElementById("answer10Text").value,
+            institutionLocation: document.getElementById("answer11Text").value,
+            completionYear: document.getElementById("answer12Text").value
+        },
+        moreInformation: {
+            volunteerDays: document.getElementById("answer13Text").value,
+            availableDays: document.getElementById("answer14Text").value,
+            phoneNumber: document.getElementById("answer15Text").value
+        }
+    };
+
+    // Display the completed user profile
+    // using the placeholders, it gets the user inputs and displays it this way:
+    let userProfileHTML = `
+        
+        <p><strong>Name:</strong> ${userProfile.personalDetails.name} ${userProfile.personalDetails.surname}</p>
+        <p><strong>Age:</strong> ${userProfile.personalDetails.age}</p>
+        <p><strong>Email:</strong> ${userProfile.personalDetails.email}</p>
+        <p><strong>Reason for Volunteering:</strong> ${userProfile.volunteering.reason}</p>
+        <p><strong>Volunteered Before:</strong> ${userProfile.volunteering.volunteeredBefore}</p>
+        <p><strong>Location:</strong> ${userProfile.volunteering.location}</p>
+        <p><strong>Volunteer Type:</strong> ${userProfile.volunteering.volunteerType}</p>
+        <p><strong>Area of Work/Study:</strong> ${userProfile.qualifications.areaOfWork}</p>
+        <p><strong>Institution:</strong> ${userProfile.qualifications.institution}</p>
+        <p><strong>Institution Location:</strong> ${userProfile.qualifications.institutionLocation}</p>
+        <p><strong>Year of Completion:</strong> ${userProfile.qualifications.completionYear}</p>
+        <p><strong>Volunteer Days:</strong> ${userProfile.moreInformation.volunteerDays}</p>
+        <p><strong>Available Days:</strong> ${userProfile.moreInformation.availableDays}</p>
+        <p><strong>Phone Number:</strong> ${userProfile.moreInformation.phoneNumber}</p>
+    `;
+
+      // Display the user profile in the center of the page
+    let userProfileContainer = document.getElementById("userProfile");
+    userProfileContainer.innerHTML = userProfileHTML;
+    userProfileContainer.classList.add("centered"); //adds centered to it so it will display with the style defined in the CSS
+
+    let userProfileTitle = document.getElementById("userProfileTITLE");
+    userProfileTitle.style.display = "block"; 
+});
+// event listener for the submit button
+document.getElementById("submitButton").addEventListener("click", function() {
+    // Redirects the user to the "THANKS.html" page
+    let name = document.getElementById("answer1Text").value; // Check if name, surname, and email fields are filled
+    let surname = document.getElementById("answer2Text").value;
+    let email = document.getElementById("answer4Text").value;
+
+    if (name.trim() === '' || surname.trim() === '' || email.trim() === '') {
+        // If any of the required fields are empty, shows the alert below
+        alert("Name, surname, and email are required fields.\nPlease fill them out.");
+    } else { //else if they are not empty
+        if (window.confirm("Are you sure you want to submit?")) { //if the user presses ok 
+            window.location.href = "THANKS.html"; //takes them to the specified page
+        }
+    }
+});
+</script>
+<br>
+<br>
+    <!-- footer -->
+
+    <section class="footer lime-bg">
+        <div class="box-container">
+          <div class="box">
+            <h3>Earth</h3>
+            <p class="links"><i class="fas fa-user"></i> Student 1 - Frida</p>
+            <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/pageEditor_ST2.html" class="links" target="_blank"><i class="fas fa-user"></i> Student 2 - Maryam</a>
+            <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/pageEditor_ST3.html" target="_blank" class="links"><i class="fas fa-user"></i> Student 3 - Victoria</a>
+            <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/pageditor_ST4.html " class="links" target="_blank"><i class="fas fa-user"></i> Student 4 - Daniel</a>
+          </div>
+     
+          <div class="box">
+            <h3>Contact Info</h3>
+            <p class="links"><i class="fas fa-clock"></i> Monday - Friday 7:00AM - 11:00PM</p>
+            <a href="#" class="links"><i class="fas fa-phone"></i> 020 7429 5822</a>
+            <a href="#" class="links"><i class="fas fa-envelope"></i> info@earth.com</a>
+            <a href="#" class="links"><i class="fas fa-map-marker-alt"></i> London, United Kingdom</a>
+          </div>
+     
+          <div class="box">
+            <h3>Quick Links</h3>
+            <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/home.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Home</a>
+            <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> About Us</a>
+            <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/gallery.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Gallery</a>
+            <a href="#" class="links"><i class="fas fa-arrow-right"></i> Shop</a>
+            <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Profile.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> user profile</a>
+            <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/Forms.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Feedback Form</a>
+            <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/sitemap.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Sitemap</a>
+     
+            <a href="https://sdgs.un.org/contact" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Contact</a>
+            <a href="#" class="links"><i class="fas fa-arrow-right"></i> Join Us</a>
+          </div>
+     
+          <div class="box">
+            <h3>Forms</h3>
+            <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/terms&conditions.html" class="links" target="_blank"><i class="fas fa-arrow-right"></i> Terms and Conditions</a>
+      <a href="https://www.un.org/en/about-us/privacy-notice" class="links" target="_blank"><i class="fas fa-arrow-right"></i> Privacy Policy</a>
+     
+            <!-- Add more form links here -->
+          </div>
+     
+          <div class="box">
+            <h3>Newsletter</h3>
+            <p>Subscribe for latest updates</p>
+            <input type="email" placeholder="Your Email" class="email">
+            <a href="#" class="btn">Subscribe</a>
+            <div class="share">
+              <a href="https://www.facebook.com/SustDev" class="fab fa-facebook-f" target="_blank"></a>
+              <a href="https://twitter.com/SustDev" class="fab fa-twitter" target="_blank"></a>
+              <a href="https://www.youtube.com/user/uncsd2012/featured" class="fab fa-youtube" target="_blank"></a>
+              <a href="https://www.flickr.com/photos/sustdev" class="fab fa-flickr" target="_blank"></a>
+     
+     
+            </div>
+          </div>
+        </div>
+        <div class="credit">&copy; Earth. All rights reserved by <a href="#" class="link">Earth</a></div>
+      </section>
+     
+     
+     
+     
+      <!-- end -->
+     
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+     
+          <script src="zoojava.js"></script>
+     
+
+</body>
+</html>
